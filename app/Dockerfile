@@ -1,4 +1,4 @@
-FROM openjdk:21-jdk-slim
+FROM alpine/java:21-jdk
 
 USER root
 
