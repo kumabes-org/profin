@@ -1,13 +1,13 @@
-package com.example.profin;
+package br.com.kumabe.profin;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ProfinApplicationTests {
+class SpringAppTests {
 
-	@Test
-	void contextLoads() {
-	}
+    @Test
+    void contextLoads() {
+    }
 
 }
