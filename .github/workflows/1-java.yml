@@ -10,9 +10,9 @@ jobs:
     with:
       runs-on: "ubuntu-latest"
       environment: "production"
-      working-directory: "java"
+      working-directory: "app"
       shell: "bash"
-      project-name: "webapp"
+      project-name: "profin"
       java-distribution: "zulu"
       java-version: "21"
       gradle-version: "8.8"
@@ -26,13 +26,13 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: java
+        working-directory: app
     steps:
       - uses: actions/checkout@v4
 
       - uses: actions/download-artifact@v4
         with:
-          name: "app"
+          name: "profin"
           path: "./app/build"
 
       - name: Display structure of downloaded files
