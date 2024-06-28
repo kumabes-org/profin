@@ -9,6 +9,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -32,6 +34,23 @@ public class AddressController {
         ModelAndView modelAndView = new ModelAndView("../pages/addresses/index");
         List<Address> addresses = addressService.list();
         modelAndView.addObject("addresses", addresses);
+        return modelAndView;
+    }
+
+
+    @PostMapping
+    public ModelAndView createAddress(@ModelAttribute Address address) {
+        LOGGER.info("Address: {}", address);
+        addressService.create(address);
+        ModelAndView modelAndView = new ModelAndView("redirect:/addresses");
+        return modelAndView;
+    }
+
+    @GetMapping("/new")
+    public ModelAndView newAddress(){
+        ModelAndView modelAndView = new ModelAndView("../pages/addresses/new");
+        Address address = new Address();
+        modelAndView.addObject("address", address);
         return modelAndView;
     }
 }
